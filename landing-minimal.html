@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reppstar Technologies | Launching Soon</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#05080a',
+          ink: '#e9f3ee',
+          muted: '#8ba397',
+          brand: '#33ff77',
+          'brand-dim': '#1c8a44',
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          sans: ['"Inter"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root { color-scheme: dark; }
+
+  html, body { background-color: #05080a; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #e9f3ee;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Ambient background: soft dark gradient + faint mesh glows */
+  .bg-field {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(50% 40% at 50% 0%, rgba(51,255,119,0.10) 0%, rgba(5,8,10,0) 60%),
+      radial-gradient(40% 35% at 85% 15%, rgba(51,255,119,0.05) 0%, rgba(5,8,10,0) 65%),
+      radial-gradient(45% 40% at 10% 85%, rgba(51,255,119,0.045) 0%, rgba(5,8,10,0) 65%),
+      linear-gradient(180deg, #060a08 0%, #050807 45%, #04070a 100%);
+  }
+
+  /* Faint grain for texture without CRT clutter */
+  .bg-grain {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.035;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .text-glow { text-shadow: 0 0 24px rgba(51,255,119,0.35); }
+
+  @keyframes float-glow {
+    0%, 100% { transform: translateY(0); opacity: 0.9; }
+    50% { transform: translateY(-6px); opacity: 1; }
+  }
+  .float-glow { animation: float-glow 5s ease-in-out infinite; }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 4px 1px rgba(51,255,119,0.9), 0 0 12px 3px rgba(51,255,119,0.35); }
+    50% { opacity: 0.4; box-shadow: 0 0 2px 0 rgba(51,255,119,0.5), 0 0 4px 1px rgba(51,255,119,0.12); }
+  }
+  .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+  input::placeholder { color: #4d6157; }
+
+  .btn-brand {
+    background: #33ff77;
+    color: #04150b;
+  }
+  .btn-brand:hover { background: #59ff92; }
+
+  .hairline { background: linear-gradient(90deg, transparent, rgba(233,243,238,0.12), transparent); }
+</style>
+</head>
+
+<body class="antialiased">
+
+  <div class="bg-field"></div>
+  <div class="bg-grain"></div>
+
+  <div class="relative z-10 min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <header class="w-full">
+      <div class="max-w-6xl mx-auto flex items-center justify-between px-6 sm:px-10 py-6">
+        <div class="flex items-center">
+          <span class="font-display font-semibold italic tracking-wide text-[1.25rem] sm:text-[1.4rem]" style="transform: skewX(-4deg); display: inline-block;">
+            <span class="text-ink">REPP</span><span class="text-brand text-glow">STAR</span>
+          </span>
+        </div>
+        <div class="flex items-center gap-2 font-mono text-[11px] sm:text-xs tracking-widest text-muted uppercase">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand pulse-dot"></span>
+          Launching Soon
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main class="flex-1 flex items-center justify-center px-6">
+      <div class="w-full max-w-3xl mx-auto text-center py-16 sm:py-20">
+
+        <div class="flex justify-center mb-10">
+          <img src="repp-logo.png" alt="Reppstar Technologies"
+               class="float-glow h-[21rem] sm:h-[28rem] md:h-[31.5rem] w-auto max-w-full"
+               style="filter: drop-shadow(0 0 28px rgba(51,255,119,0.35));">
+        </div>
+
+        <h1 class="font-display font-semibold text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight text-ink">
+          New times call for<br>
+          <span class="text-brand text-glow">new tech</span>.
+        </h1>
+
+        <p class="mt-6 font-sans text-base sm:text-lg text-muted max-w-xl mx-auto leading-relaxed">
+          Reppstar Technologies is building the next layer of intelligent systems.
+          Be first to know when we open the doors.
+        </p>
+
+        <!-- Waitlist -->
+        <div class="mt-10 max-w-md mx-auto">
+          <form class="flex flex-col sm:flex-row gap-3" onsubmit="return false;">
+            <label for="access-email" class="sr-only">Email address</label>
+            <input
+              id="access-email"
+              type="email"
+              required
+              placeholder="you@company.com"
+              class="flex-1 bg-white/[0.04] border border-white/10 focus:border-brand focus:ring-1 focus:ring-brand/50 outline-none rounded-full px-5 py-3.5 text-sm text-ink placeholder:text-muted font-sans transition-colors"
+            >
+            <button
+              type="submit"
+              class="btn-brand rounded-full font-sans font-semibold text-sm px-7 py-3.5 uppercase tracking-wide transition-colors whitespace-nowrap"
+            >
+              Notify Me
+            </button>
+          </form>
+          <p class="mt-4 font-mono text-[11px] tracking-widest text-muted/70 uppercase">
+            No spam. Unsubscribe anytime.
+          </p>
+        </div>
+
+        <!-- Feature strip -->
+        <div class="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 text-left sm:text-center">
+          <div class="flex sm:flex-col items-start sm:items-center gap-3">
+            <svg class="w-5 h-5 text-brand shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5Z" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke-linejoin="round"/></svg>
+            <div>
+              <p class="font-display font-semibold text-sm text-ink">Precision Engineering</p>
+              <p class="font-sans text-xs text-muted mt-1">Systems built for exacting standards.</p>
+            </div>
+          </div>
+          <div class="flex sm:flex-col items-start sm:items-center gap-3">
+            <svg class="w-5 h-5 text-brand shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke-linejoin="round"/></svg>
+            <div>
+              <p class="font-display font-semibold text-sm text-ink">Adaptive Performance</p>
+              <p class="font-sans text-xs text-muted mt-1">Infrastructure that scales with you.</p>
+            </div>
+          </div>
+          <div class="flex sm:flex-col items-start sm:items-center gap-3">
+            <svg class="w-5 h-5 text-brand shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <p class="font-display font-semibold text-sm text-ink">Future-Ready</p>
+              <p class="font-sans text-xs text-muted mt-1">Designed for what comes next.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full">
+      <div class="hairline h-px w-full"></div>
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 px-6 sm:px-10 py-6 font-mono text-[11px] tracking-widest text-muted/70 uppercase">
+        <span>Reppstar.com</span>
+        <span>R&amp;D Status: Awaiting Deployment</span>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
